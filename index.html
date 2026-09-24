@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanggar Tari Cakra Buana - Warisan Budaya Nusantara</title>
+    <title>Sanggar Seni Tiga Kendari - Warisan Budaya Sulawesi Tenggara</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -32,11 +32,6 @@
 
         .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
         .font-tangerine { font-family: 'Tangerine', cursive; }
-
-        /* Ornamen Batik Pattern */
-        .ornament-border {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C9A227' stroke-width='1'%3E%3Cpath d='M30 5 L35 15 L30 25 L25 15 Z'/%3E%3Cpath d='M30 35 L35 45 L30 55 L25 45 Z'/%3E%3Cpath d='M5 30 L15 35 L25 30 L15 25 Z'/%3E%3Cpath d='M35 30 L45 35 L55 30 L45 25 Z'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E");
-        }
 
         /* Divider Ornamen */
         .ornament-divider {
@@ -79,7 +74,7 @@
         }
         .logo {
             color: var(--emas);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
@@ -277,12 +272,12 @@
             color: var(--coklat-sogan);
         }
 
-        /* Kelas Tari */
-        .kelas-section {
+        /* Tarian yang Dipersembahkan */
+        .tarian-section {
             background: linear-gradient(to bottom, var(--krem-tua), var(--krem));
             position: relative;
         }
-        .kelas-section::before {
+        .tarian-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -291,30 +286,30 @@
             background-repeat: repeat-x;
             opacity: 0.5;
         }
-        .kelas-grid {
+        .tarian-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             position: relative;
         }
-        .kelas-card {
+        .tarian-card {
             background: var(--krem);
             border: 2px solid var(--coklat-sogan);
-            padding: 40px 25px;
+            padding: 30px 25px;
             text-align: center;
             position: relative;
             transition: transform 0.3s;
             box-shadow: 0 4px 15px rgba(62, 39, 35, 0.15);
         }
-        .kelas-card::before {
+        .tarian-card::before {
             content: '';
             position: absolute;
             top: 8px; left: 8px; right: 8px; bottom: 8px;
             border: 1px solid var(--emas);
             pointer-events: none;
         }
-        .kelas-card:hover { transform: translateY(-8px); }
-        .kelas-icon {
+        .tarian-card:hover { transform: translateY(-8px); }
+        .tarian-icon {
             width: 80px;
             height: 80px;
             background: var(--coklat-tua);
@@ -327,20 +322,20 @@
             margin: 0 auto 20px;
             border: 3px double var(--emas);
         }
-        .kelas-card h3 {
+        .tarian-card h3 {
             font-family: 'Cinzel', serif;
             font-size: 20px;
             color: var(--merah-marun);
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
-        .kelas-card p {
-            font-size: 15px;
+        .tarian-card p {
+            font-size: 14px;
             line-height: 1.7;
             margin-bottom: 15px;
             color: var(--coklat-tua);
         }
-        .kelas-card .usia {
+        .tarian-card .asal {
             display: inline-block;
             padding: 5px 15px;
             background: var(--emas);
@@ -418,26 +413,51 @@
             margin-top: 3px;
         }
         .kontak-item span { font-size: 15px; line-height: 1.6; }
-        .sosmed {
-            display: flex;
+        .kontak-item a {
+            color: var(--krem);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .kontak-item a:hover { color: var(--emas); }
+
+        /* Tombol Sosmed Besar */
+        .sosmed-besar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-top: 30px;
         }
-        .sosmed a {
-            width: 45px;
-            height: 45px;
-            border: 1px solid var(--emas);
-            color: var(--emas);
+        .sosmed-besar a {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px 10px;
+            border: 2px solid var(--emas);
+            color: var(--emas);
             text-decoration: none;
             transition: all 0.3s;
+            background: rgba(201, 162, 39, 0.05);
         }
-        .sosmed a:hover {
+        .sosmed-besar a i {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .sosmed-besar a span {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .sosmed-besar a:hover {
             background: var(--emas);
             color: var(--coklat-tua);
+            transform: translateY(-5px);
         }
+        .sosmed-besar a.wa:hover { background: #25D366; border-color: #25D366; color: white; }
+        .sosmed-besar a.ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; color: white; }
+        .sosmed-besar a.yt:hover { background: #FF0000; border-color: #FF0000; color: white; }
+        .sosmed-besar a.tt:hover { background: #000000; border-color: #000000; color: white; }
 
         .form-box {
             background: rgba(245, 230, 211, 0.08);
@@ -496,6 +516,36 @@
             background: var(--emas-muda);
         }
 
+        /* Tombol WhatsApp Mengambang */
+        .wa-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            z-index: 99;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         /* Footer */
         footer {
             background: var(--hitam-tua);
@@ -519,10 +569,11 @@
             .menu-toggle { display: block; }
             .hero h1 { font-size: 36px; letter-spacing: 2px; }
             .hero-subtitle { font-size: 36px; }
-            .tentang-grid, .kelas-grid, .kontak-grid { grid-template-columns: 1fr; }
+            .tentang-grid, .tarian-grid, .kontak-grid { grid-template-columns: 1fr; }
             .galeri-grid { grid-template-columns: repeat(2, 1fr); }
             .galeri-item.wide { grid-column: span 2; }
             .section-title h2 { font-size: 26px; }
+            .sosmed-besar { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -532,13 +583,13 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                Cakra Buana
-                <small>Sanggar Tari</small>
+                Tiga Kendari
+                <small>Sanggar Seni</small>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#beranda">Beranda</a></li>
                 <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#kelas">Kelas</a></li>
+                <li><a href="#tarian">Tarian</a></li>
                 <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
@@ -551,13 +602,13 @@
     <!-- Hero -->
     <section class="hero" id="beranda">
         <div class="hero-content">
-            <div class="hero-subtitle">Sri Sanggar Tari</div>
-            <h1>Cakra Buana</h1>
+            <div class="hero-subtitle">Sanggar Seni</div>
+            <h1>Tiga Kendari</h1>
             <div class="ornament-divider">
                 <span class="icon">❦</span>
             </div>
-            <p>"Menari adalah bahasa jiwa, menghidupkan warisan leluhur<br>dalam setiap gerak yang penuh makna dan keharmonisan."</p>
-            <a href="#kelas" class="btn-traditional">Jelangi Kelas Kami</a>
+            <p>"Menghidupkan warisan budaya Sulawesi Tenggara<br>dalam setiap gerak yang penuh makna dan keharmonisan."</p>
+            <a href="#tarian" class="btn-traditional">Lihat Tarian Kami</a>
         </div>
     </section>
 
@@ -575,43 +626,63 @@
                 </div>
                 <div class="tentang-text">
                     <h3>Warisan Leluhur</h3>
-                    <p>Didirikan pada tahun 2010, Sanggar Tari Cakra Buana merupakan wadah pelestarian seni tari Nusantara yang berakar pada nilai-nilai luhur budaya Jawa, Sunda, dan Bali. Kami percaya bahwa setiap gerakan tari menyimpan doa, cerita, dan kebijaksanaan para leluhur yang patut dijaga kelestariannya.</p>
-                    <p>Dengan bimbingan para guru yang telah mendedikasikan hidupnya pada seni tari, sanggar kami menjadi rumah bagi para penari dari berbagai generasi — dari anak-anak yang baru mengenal gerak, hingga para dewasa yang ingin mendalami filosofi tari.</p>
+                    <p>Sanggar Seni Tiga Kendari merupakan wadah pelestarian seni tari dan budaya yang berakar pada kekayaan tradisi Sulawesi Tenggara. Kami percaya bahwa setiap gerakan tari menyimpan doa, cerita, dan kebijaksanaan para leluhur Tolaki, Muna, Buton, dan suku-suku lainnya yang patut dijaga kelestariannya.</p>
+                    <p>Dengan bimbingan para guru yang telah mendedikasikan hidupnya pada seni tari, sanggar kami menjadi rumah bagi para penari dari berbagai generasi — dari anak-anak yang baru mengenal gerak, hingga para dewasa yang ingin mendalami filosofi tari Nusantara.</p>
                     <div class="filosofi-box">
-                        "Agung kang tanpa wisesa, luhur kang tanpa priyoga"<br>
-                        <small>— Besar tanpa kekuasaan, luhur tanpa kesombongan —</small>
+                        "Tari adalah doa yang terucap melalui tubuh,<br>warisan yang hidup dalam setiap generasi."<br>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kelas -->
-    <section id="kelas" class="kelas-section">
+    <!-- Tarian yang Dipersembahkan -->
+    <section id="tarian" class="tarian-section">
         <div class="container">
             <div class="section-title">
-                <span class="small-title">Pawiyatan</span>
-                <h2>Program Kelas</h2>
+                <span class="small-title">Repertoar Seni</span>
+                <h2>Tarian yang Dipersembahkan</h2>
                 <div class="ornament-divider"><span class="icon">❦</span></div>
+                <p style="max-width: 700px; margin: 20px auto 0; font-style: italic; color: var(--coklat-sogan);">
+                    Berbagai tarian tradisional khas Sulawesi Tenggara dan Nusantara yang menjadi kebanggaan sanggar kami.
+                </p>
             </div>
-            <div class="kelas-grid">
-                <div class="kelas-card">
-                    <div class="kelas-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Tari Klasik</h3>
-                    <p>Mendalami tarian kraton yang sarat akan pakem dan filosofi luhur. Serimpi, Bedhaya, Gambyong, dan tarian klasik lainnya dari tanah Jawa.</p>
-                    <span class="usia">Dewasa</span>
+            <div class="tarian-grid">
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-users"></i></div>
+                    <h3>Tari Lulo</h3>
+                    <p>Tari pergaulan khas suku Tolaki yang ditarikan secara berkelompok dengan melingkar, melambangkan persatuan dan keakraban masyarakat.</p>
+                    <span class="asal">Tolaki — Kendari</span>
                 </div>
-                <div class="kelas-card">
-                    <div class="kelas-icon"><i class="fas fa-drum"></i></div>
-                    <h3>Tari Rakyat</h3>
-                    <p>Menari dengan riang bersama iringan gamelan. Jaipong, Tayub, Ronggeng, dan berbagai tarian rakyat yang penuh keceriaan.</p>
-                    <span class="usia">Semua Usia</span>
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Tari Balumpa</h3>
+                    <p>Tari perang tradisional yang gagah perkasa, menampilkan keberanian dan keperkasaan pria Bugis dalam menyambut tamu kehormatan.</p>
+                    <span class="asal">Buton</span>
                 </div>
-                <div class="kelas-card">
-                    <div class="kelas-icon"><i class="fas fa-child"></i></div>
-                    <h3>Tari Anak</h3>
-                    <p>Memperkenalkan seni tari sejak dini dengan cara yang menyenangkan. Membentuk karakter, disiplin, dan kecintaan pada budaya.</p>
-                    <span class="usia">5 — 12 Tahun</span>
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-drum"></i></div>
+                    <h3>Tari Dinggu</h3>
+                    <p>Tari penyambutan tamu agung yang penuh keanggunan, diiringi oleh gamelan khas Muna dengan gerakan yang lemah gemulai.</p>
+                    <span class="asal">Muna</span>
+                </div>
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Tari Moseha</h3>
+                    <p>Tari tradisional yang menggambarkan kehalusan budi dan kelembutan perempuan Sulawesi Tenggara dalam menyambut tamu istimewa.</p>
+                    <span class="asal">Tolaki</span>
+                </div>
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-fan"></i></div>
+                    <h3>Tari Lumense</h3>
+                    <p>Tari penyambutan yang berasal dari kesultanan Buton, ditarikan oleh para putri istana dengan busana adat yang megah dan anggun.</p>
+                    <span class="asal">Kesultanan Buton</span>
+                </div>
+                <div class="tarian-card">
+                    <div class="tarian-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Tari Nggongi</h3>
+                    <p>Tari tradisional yang menceritakan kisah kepahlawanan dan kejantanan para pemuda dalam melindungi tanah kelahirannya.</p>
+                    <span class="asal">Muna Barat</span>
                 </div>
             </div>
         </div>
@@ -661,33 +732,52 @@
                     <h3>Alamat Sanggar</h3>
                     <div class="kontak-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Jl. Seni Budaya No. 123<br>Jakarta Selatan, Indonesia</span>
+                        <span>Jl. Seni Budaya No. 123<br>Kendari, Sulawesi Tenggara</span>
                     </div>
+                    
+                    <!-- ⚠️ GANTI NOMOR DI BAWAH INI DENGAN NOMOR WA ANDA -->
                     <div class="kontak-item">
                         <i class="fab fa-whatsapp"></i>
-                        <span>+62 812-3456-7890</span>
+                        <span><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></span>
                     </div>
+                    
                     <div class="kontak-item">
                         <i class="fas fa-envelope"></i>
-                        <span>info@cakrabuana-tari.com</span>
+                        <span>info@sanggartigakendari.com</span>
                     </div>
                     <div class="kontak-item">
                         <i class="fas fa-clock"></i>
-                        <span>Selasa — Minggu<br>15.00 — 21.00 WIB</span>
+                        <span>Selasa — Minggu<br>15.00 — 21.00 WITA</span>
                     </div>
-                    <div class="sosmed">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+
+                    <!-- ⚠️ GANTI LINK SOSMED DI BAWAH INI DENGAN AKUN ANDA -->
+                    <div class="sosmed-besar">
+                        <a href="https://wa.me/6281234567890" target="_blank" class="wa">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://instagram.com/sanggartigakendari" target="_blank" class="ig">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://youtube.com/@sanggartigakendari" target="_blank" class="yt">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://tiktok.com/@sanggartigakendari" target="_blank" class="tt">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                        </a>
                     </div>
                 </div>
                 <div class="form-box">
                     <h3>Kirim Pesan</h3>
-                    <form>
-                        <input type="text" placeholder="Nama Lengkap Anda">
-                        <input type="email" placeholder="Alamat Surat Elektronik">
-                        <textarea rows="5" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                    <form action="https://formsubmit.co/alamat.email.anda@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Pesan Baru dari Website Sanggar Seni Tiga Kendari!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="nama" placeholder="Nama Lengkap Anda" required>
+                        <input type="email" name="email" placeholder="Alamat Email Anda" required>
+                        <textarea name="pesan" rows="5" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
                         <button type="submit">Kirim Pesan</button>
                     </form>
                 </div>
@@ -697,9 +787,18 @@
 
     <!-- Footer -->
     <footer>
-        <div class="motto">Manglebet ing Budaya</div>
-        <p>&copy; 2026 Sanggar Tari Cakra Buana — Melestarikan Warisan Nusantara</p>
+        <div class="motto">Melestarikan Budaya Sulawesi Tenggara</div>
+        <p>&copy; 2026 Sanggar Seni Tiga Kendari — Warisan Leluhur untuk Generasi Mendatang</p>
     </footer>
+
+    <!-- Tombol WhatsApp Mengambang -->
+    <!-- ⚠️ GANTI NOMOR DI BAWAH INI DENGAN NOMOR WA ANDA -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Sanggar%20Seni%20Tiga%20Kendari,%20saya%20ingin%20bertanya." 
+       target="_blank" 
+       class="wa-float"
+       title="Chat via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
