@@ -3,191 +3,702 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanggar Tari Cakra Buana - Melestarikan Budaya Melalui Tarian</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <title>Sanggar Tari Cakra Buana - Warisan Budaya Nusantara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        :root {
+            --coklat-tua: #3E2723;
+            --coklat-sogan: #6F4E37;
+            --emas: #C9A227;
+            --emas-muda: #E8C547;
+            --krem: #F5E6D3;
+            --krem-tua: #E8D5B7;
+            --merah-marun: #6B1E1E;
+            --hitam-tua: #1A0F0A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Serif', serif;
+            background-color: var(--krem);
+            color: var(--coklat-tua);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(107, 30, 30, 0.05) 0%, transparent 50%);
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+        .font-tangerine { font-family: 'Tangerine', cursive; }
+
+        /* Ornamen Batik Pattern */
+        .ornament-border {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23C9A227' stroke-width='1'%3E%3Cpath d='M30 5 L35 15 L30 25 L25 15 Z'/%3E%3Cpath d='M30 35 L35 45 L30 55 L25 45 Z'/%3E%3Cpath d='M5 30 L15 35 L25 30 L15 25 Z'/%3E%3Cpath d='M35 30 L45 35 L55 30 L45 25 Z'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Divider Ornamen */
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--emas), transparent);
+        }
+        .ornament-divider .icon {
+            color: var(--emas);
+            font-size: 24px;
+            margin: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            background: linear-gradient(to bottom, var(--coklat-tua), var(--hitam-tua));
+            border-bottom: 3px double var(--emas);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--emas);
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .logo small {
+            display: block;
+            font-family: 'Tangerine', cursive;
+            font-size: 22px;
+            color: var(--krem);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--krem);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--emas); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--emas);
+            transition: all 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .menu-toggle { display: none; color: var(--emas); font-size: 24px; background: none; border: none; cursor: pointer; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            background: 
+                linear-gradient(rgba(26, 15, 10, 0.75), rgba(26, 15, 10, 0.85)),
+                url('https://images.unsplash.com/photo-1604451144404-941c5d4c5e81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--krem);
+            position: relative;
+            padding: 60px 20px;
+        }
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath d='M0 20 Q20 0 40 20 T80 20' stroke='%23C9A227' fill='none' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='20' r='2' fill='%23C9A227'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+        .hero::before { top: 20px; }
+        .hero::after { bottom: 20px; transform: scaleY(-1); }
+
+        .hero-content { max-width: 800px; position: relative; z-index: 2; }
+        .hero-subtitle {
+            font-family: 'Tangerine', cursive;
+            font-size: 48px;
+            color: var(--emas-muda);
+            margin-bottom: 10px;
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 56px;
+            color: var(--krem);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            letter-spacing: 4px;
+        }
+        .hero p {
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--krem-tua);
+        }
+        .btn-traditional {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(to bottom, var(--emas-muda), var(--emas));
+            color: var(--coklat-tua);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+            border: 2px solid var(--coklat-tua);
+            box-shadow: 0 0 0 3px var(--emas), 0 6px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+        .btn-traditional:hover {
+            background: var(--coklat-tua);
+            color: var(--emas);
+            box-shadow: 0 0 0 3px var(--emas), 0 6px 20px rgba(0,0,0,0.6);
+        }
+
+        /* Section Umum */
+        section { padding: 80px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title .small-title {
+            font-family: 'Tangerine', cursive;
+            font-size: 42px;
+            color: var(--merah-marun);
+            display: block;
+            margin-bottom: -10px;
+        }
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: var(--coklat-tua);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Tentang */
+        .tentang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .tentang-img {
+            position: relative;
+            padding: 15px;
+            background: var(--krem-tua);
+            border: 1px solid var(--emas);
+        }
+        .tentang-img::before {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1px solid var(--coklat-sogan);
+            pointer-events: none;
+        }
+        .tentang-img img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            filter: sepia(20%) contrast(1.05);
+        }
+        .tentang-text h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--merah-marun);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .tentang-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+            color: var(--coklat-tua);
+        }
+        .tentang-text p:first-of-type::first-letter {
+            font-size: 56px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: var(--merah-marun);
+            float: left;
+            line-height: 0.9;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+        .filosofi-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--krem-tua);
+            border-left: 4px solid var(--emas);
+            border-right: 4px solid var(--emas);
+            font-style: italic;
+            text-align: center;
+            color: var(--coklat-sogan);
+        }
+
+        /* Kelas Tari */
+        .kelas-section {
+            background: linear-gradient(to bottom, var(--krem-tua), var(--krem));
+            position: relative;
+        }
+        .kelas-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='80' viewBox='0 0 100 80'%3E%3Cpath d='M50 10 L60 30 L50 50 L40 30 Z M20 40 L30 60 L20 80 L10 60 Z M80 40 L90 60 L80 80 L70 60 Z' stroke='%23C9A227' fill='none' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            opacity: 0.5;
+        }
+        .kelas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+        .kelas-card {
+            background: var(--krem);
+            border: 2px solid var(--coklat-sogan);
+            padding: 40px 25px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.15);
+        }
+        .kelas-card::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px solid var(--emas);
+            pointer-events: none;
+        }
+        .kelas-card:hover { transform: translateY(-8px); }
+        .kelas-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--coklat-tua);
+            color: var(--emas);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+            border: 3px double var(--emas);
+        }
+        .kelas-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: var(--merah-marun);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .kelas-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--coklat-tua);
+        }
+        .kelas-card .usia {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--emas);
+            color: var(--coklat-tua);
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Galeri */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .galeri-item {
+            position: relative;
+            overflow: hidden;
+            border: 8px solid var(--krem-tua);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2), inset 0 0 0 1px var(--emas);
+        }
+        .galeri-item::after {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px solid rgba(201, 162, 39, 0.5);
+            pointer-events: none;
+        }
+        .galeri-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            filter: sepia(15%) saturate(0.9);
+            transition: all 0.5s;
+        }
+        .galeri-item:hover img {
+            filter: sepia(0%) saturate(1.1);
+            transform: scale(1.05);
+        }
+        .galeri-item.wide { grid-column: span 2; }
+
+        /* Kontak */
+        .kontak-section {
+            background: 
+                linear-gradient(rgba(62, 39, 35, 0.92), rgba(26, 15, 10, 0.95)),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23C9A227' stroke-width='0.8' opacity='0.3'%3E%3Cpath d='M40 10 L50 30 L40 50 L30 30 Z'/%3E%3Cpath d='M10 40 L30 50 L50 40 L30 30 Z'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            color: var(--krem);
+        }
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .kontak-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--emas);
+            font-size: 24px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+        .kontak-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(201, 162, 39, 0.3);
+        }
+        .kontak-item i {
+            color: var(--emas);
+            font-size: 22px;
+            margin-top: 3px;
+        }
+        .kontak-item span { font-size: 15px; line-height: 1.6; }
+        .sosmed {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .sosmed a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--emas);
+            color: var(--emas);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .sosmed a:hover {
+            background: var(--emas);
+            color: var(--coklat-tua);
+        }
+
+        .form-box {
+            background: rgba(245, 230, 211, 0.08);
+            border: 1px solid var(--emas);
+            padding: 35px;
+            position: relative;
+        }
+        .form-box::before {
+            content: '';
+            position: absolute;
+            top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            pointer-events: none;
+        }
+        .form-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--emas);
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            background: rgba(245, 230, 211, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.5);
+            color: var(--krem);
+            font-family: 'Noto Serif', serif;
+            font-size: 14px;
+        }
+        .form-box input::placeholder, .form-box textarea::placeholder {
+            color: rgba(245, 230, 211, 0.6);
+            font-style: italic;
+        }
+        .form-box input:focus, .form-box textarea:focus {
+            outline: none;
+            border-color: var(--emas);
+            background: rgba(245, 230, 211, 0.15);
+        }
+        .form-box button {
+            width: 100%;
+            padding: 14px;
+            background: var(--emas);
+            color: var(--coklat-tua);
+            border: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .form-box button:hover {
+            background: var(--emas-muda);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--hitam-tua);
+            color: var(--krem-tua);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 3px double var(--emas);
+        }
+        footer .motto {
+            font-family: 'Tangerine', cursive;
+            font-size: 32px;
+            color: var(--emas);
+            margin-bottom: 10px;
+        }
+        footer p { font-size: 13px; letter-spacing: 1px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--hitam-tua); flex-direction: column; padding: 20px; gap: 15px; border-bottom: 2px solid var(--emas); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero h1 { font-size: 36px; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 36px; }
+            .tentang-grid, .kelas-grid, .kontak-grid { grid-template-columns: 1fr; }
+            .galeri-grid { grid-template-columns: repeat(2, 1fr); }
+            .galeri-item.wide { grid-column: span 2; }
+            .section-title h2 { font-size: 26px; }
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
+<body>
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-serif text-rose-900 font-bold">Cakra Buana</a>
-            <div class="hidden md:flex space-x-8 text-stone-700 font-medium">
-                <a href="#beranda" class="hover:text-rose-900 transition">Beranda</a>
-                <a href="#tentang" class="hover:text-rose-900 transition">Tentang</a>
-                <a href="#kelas" class="hover:text-rose-900 transition">Kelas</a>
-                <a href="#galeri" class="hover:text-rose-900 transition">Galeri</a>
-                <a href="#kontak" class="hover:text-rose-900 transition">Kontak</a>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                Cakra Buana
+                <small>Sanggar Tari</small>
             </div>
-            <a href="#kontak" class="hidden md:block bg-rose-900 text-white px-5 py-2 rounded-full hover:bg-rose-800 transition">Daftar Sekarang</a>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-2xl text-rose-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kelas">Kelas</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4 space-y-3">
-            <a href="#beranda" class="block text-stone-700">Beranda</a>
-            <a href="#tentang" class="block text-stone-700">Tentang</a>
-            <a href="#kelas" class="block text-stone-700">Kelas</a>
-            <a href="#galeri" class="block text-stone-700">Galeri</a>
-            <a href="#kontak" class="block text-stone-700">Kontak</a>
-        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="hero-bg h-screen flex items-center justify-center text-center text-white px-6 pt-20">
-        <div class="max-w-3xl">
-            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">Melestarikan Budaya,<br>Menari dengan Jiwa</h1>
-            <p class="text-lg md:text-xl mb-8 text-stone-200">Bergabunglah bersama Sanggar Tari Cakra Buana. Tempat terbaik untuk belajar, mengekspresikan diri, dan mencintai warisan nusantara.</p>
-            <a href="#kelas" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition shadow-lg">Lihat Program Kelas</a>
+    <!-- Hero -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <div class="hero-subtitle">Sri Sanggar Tari</div>
+            <h1>Cakra Buana</h1>
+            <div class="ornament-divider">
+                <span class="icon">❦</span>
+            </div>
+            <p>"Menari adalah bahasa jiwa, menghidupkan warisan leluhur<br>dalam setiap gerak yang penuh makna dan keharmonisan."</p>
+            <a href="#kelas" class="btn-traditional">Jelangi Kelas Kami</a>
         </div>
     </section>
 
-    <!-- Tentang Kami -->
-    <section id="tentang" class="py-20 px-6">
-        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="https://images.unsplash.com/photo-1545959570-a94084071b5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tari Tradisional" class="rounded-2xl shadow-xl w-full object-cover h-96">
+    <!-- Tentang -->
+    <section id="tentang">
+        <div class="container">
+            <div class="section-title">
+                <span class="small-title">Asal Mula</span>
+                <h2>Tentang Sanggar</h2>
+                <div class="ornament-divider"><span class="icon">❋</span></div>
             </div>
-            <div>
-                <h2 class="text-4xl font-serif text-rose-900 mb-4">Tentang Sanggar Kami</h2>
-                <p class="text-stone-600 mb-4 leading-relaxed">
-                    Didirikan pada tahun 2010, Sanggar Tari Cakra Buana berkomitmen untuk melestarikan dan mengembangkan seni tari tradisional maupun kontemporer Indonesia. 
-                </p>
-                <p class="text-stone-600 mb-6 leading-relaxed">
-                    Kami menyediakan lingkungan yang suportif bagi penari dari segala usia dan tingkat keahlian, mulai dari pemula hingga profesional. Dengan pengajar yang berpengalaman dan bersertifikat, kami menjamin kualitas pembelajaran yang terbaik.
-                </p>
-                <div class="flex space-x-6 text-center">
-                    <div>
-                        <h3 class="text-3xl font-bold text-amber-600">13+</h3>
-                        <p class="text-stone-500 text-sm">Tahun Berdiri</p>
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-amber-600">500+</h3>
-                        <p class="text-stone-500 text-sm">Alumni</p>
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-amber-600">50+</h3>
-                        <p class="text-stone-500 text-sm">Prestasi</p>
+            <div class="tentang-grid">
+                <div class="tentang-img">
+                    <img src="https://images.unsplash.com/photo-1604451144404-941c5d4c5e81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Penari Tradisional">
+                </div>
+                <div class="tentang-text">
+                    <h3>Warisan Leluhur</h3>
+                    <p>Didirikan pada tahun 2010, Sanggar Tari Cakra Buana merupakan wadah pelestarian seni tari Nusantara yang berakar pada nilai-nilai luhur budaya Jawa, Sunda, dan Bali. Kami percaya bahwa setiap gerakan tari menyimpan doa, cerita, dan kebijaksanaan para leluhur yang patut dijaga kelestariannya.</p>
+                    <p>Dengan bimbingan para guru yang telah mendedikasikan hidupnya pada seni tari, sanggar kami menjadi rumah bagi para penari dari berbagai generasi — dari anak-anak yang baru mengenal gerak, hingga para dewasa yang ingin mendalami filosofi tari.</p>
+                    <div class="filosofi-box">
+                        "Agung kang tanpa wisesa, luhur kang tanpa priyoga"<br>
+                        <small>— Besar tanpa kekuasaan, luhur tanpa kesombongan —</small>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Program Kelas -->
-    <section id="kelas" class="py-20 px-6 bg-stone-100">
-        <div class="container mx-auto text-center mb-12">
-            <h2 class="text-4xl font-serif text-rose-900 mb-4">Program Kelas Tari</h2>
-            <p class="text-stone-600 max-w-2xl mx-auto">Pilih kelas yang sesuai dengan minat dan usia Anda. Kami menyediakan berbagai jenis tarian nusantara.</p>
-        </div>
-        <div class="container mx-auto grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
-                <div class="w-16 h-16 bg-rose-100 text-rose-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3 class="text-2xl font-serif text-rose-900 mb-3">Tari Tradisional</h3>
-                <p class="text-stone-600 mb-4">Mempelajari tarian klasik dan tradisional murni dari berbagai daerah di Indonesia (Jawa, Sunda, Bali, dll).</p>
-                <span class="text-amber-600 font-semibold">Anak-anak & Dewasa</span>
+    <!-- Kelas -->
+    <section id="kelas" class="kelas-section">
+        <div class="container">
+            <div class="section-title">
+                <span class="small-title">Pawiyatan</span>
+                <h2>Program Kelas</h2>
+                <div class="ornament-divider"><span class="icon">❦</span></div>
             </div>
-            <!-- Card 2 -->
-            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
-                <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-                    <i class="fas fa-music"></i>
+            <div class="kelas-grid">
+                <div class="kelas-card">
+                    <div class="kelas-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Tari Klasik</h3>
+                    <p>Mendalami tarian kraton yang sarat akan pakem dan filosofi luhur. Serimpi, Bedhaya, Gambyong, dan tarian klasik lainnya dari tanah Jawa.</p>
+                    <span class="usia">Dewasa</span>
                 </div>
-                <h3 class="text-2xl font-serif text-rose-900 mb-3">Tari Kreasi Baru</h3>
-                <p class="text-stone-600 mb-4">Tarian yang dikembangkan dari akar tradisional namun dengan sentuhan modern dan koreografi kontemporer.</p>
-                <span class="text-amber-600 font-semibold">Remaja & Dewasa</span>
-            </div>
-            <!-- Card 3 -->
-            <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
-                <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-                    <i class="fas fa-user-friends"></i>
+                <div class="kelas-card">
+                    <div class="kelas-icon"><i class="fas fa-drum"></i></div>
+                    <h3>Tari Rakyat</h3>
+                    <p>Menari dengan riang bersama iringan gamelan. Jaipong, Tayub, Ronggeng, dan berbagai tarian rakyat yang penuh keceriaan.</p>
+                    <span class="usia">Semua Usia</span>
                 </div>
-                <h3 class="text-2xl font-serif text-rose-900 mb-3">Kelas Privat</h3>
-                <p class="text-stone-600 mb-4">Sesi latihan one-on-one untuk persiapan lomba, wedding dance, atau wisuda dengan jadwal yang fleksibel.</p>
-                <span class="text-amber-600 font-semibold">Semua Usia</span>
+                <div class="kelas-card">
+                    <div class="kelas-icon"><i class="fas fa-child"></i></div>
+                    <h3>Tari Anak</h3>
+                    <p>Memperkenalkan seni tari sejak dini dengan cara yang menyenangkan. Membentuk karakter, disiplin, dan kecintaan pada budaya.</p>
+                    <span class="usia">5 — 12 Tahun</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Galeri -->
-    <section id="galeri" class="py-20 px-6">
-        <div class="container mx-auto text-center mb-12">
-            <h2 class="text-4xl font-serif text-rose-900 mb-4">Galeri Kegiatan</h2>
-            <p class="text-stone-600">Momen-momen indah dari penampilan dan latihan sanggar kami.</p>
-        </div>
-        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer" alt="Galeri 1">
-            <img src="https://images.unsplash.com/photo-1513360371669-4adf3ec7d890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer" alt="Galeri 2">
-            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer" alt="Galeri 3">
-            <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer" alt="Galeri 4">
-            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer md:col-span-2" alt="Galeri 5">
-            <img src="https://images.unsplash.com/photo-1519892338195-7a66a4d1f764?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="rounded-lg h-48 w-full object-cover hover:opacity-80 transition cursor-pointer md:col-span-2" alt="Galeri 6">
+    <section id="galeri">
+        <div class="container">
+            <div class="section-title">
+                <span class="small-title">Puspita Seni</span>
+                <h2>Galeri Penampilan</h2>
+                <div class="ornament-divider"><span class="icon">❋</span></div>
+            </div>
+            <div class="galeri-grid">
+                <div class="galeri-item wide">
+                    <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Penampilan 1">
+                </div>
+                <div class="galeri-item">
+                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3ec7d890?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Penampilan 2">
+                </div>
+                <div class="galeri-item">
+                    <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Penampilan 3">
+                </div>
+                <div class="galeri-item">
+                    <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Penampilan 4">
+                </div>
+                <div class="galeri-item">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Penampilan 5">
+                </div>
+                <div class="galeri-item wide">
+                    <img src="https://images.unsplash.com/photo-1519892338195-7a66a4d1f764?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Penampilan 6">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Kontak & Footer -->
-    <section id="kontak" class="bg-rose-900 text-white py-20 px-6">
-        <div class="container mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-4xl font-serif mb-4">Hubungi Kami</h2>
-                <p class="text-rose-200 mb-8">Punya pertanyaan atau ingin mendaftar kelas trial gratis? Jangan ragu untuk menghubungi kami.</p>
-                
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-map-marker-alt text-amber-400 text-xl"></i>
-                        <span>Jl. Seni Budaya No. 123, Jakarta Selatan, Indonesia</span>
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <div class="container">
+            <div class="section-title">
+                <span class="small-title" style="color: var(--emas-muda);">Silaturahmi</span>
+                <h2 style="color: var(--krem);">Hubungi Kami</h2>
+                <div class="ornament-divider"><span class="icon">❦</span></div>
+            </div>
+            <div class="kontak-grid">
+                <div class="kontak-info">
+                    <h3>Alamat Sanggar</h3>
+                    <div class="kontak-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Seni Budaya No. 123<br>Jakarta Selatan, Indonesia</span>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <i class="fab fa-whatsapp text-amber-400 text-xl"></i>
+                    <div class="kontak-item">
+                        <i class="fab fa-whatsapp"></i>
                         <span>+62 812-3456-7890</span>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-envelope text-amber-400 text-xl"></i>
+                    <div class="kontak-item">
+                        <i class="fas fa-envelope"></i>
                         <span>info@cakrabuana-tari.com</span>
                     </div>
+                    <div class="kontak-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Selasa — Minggu<br>15.00 — 21.00 WIB</span>
+                    </div>
+                    <div class="sosmed">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
-
-                <div class="flex space-x-4 mt-8">
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-500 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-500 transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-500 transition"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-500 transition"><i class="fab fa-tiktok"></i></a>
+                <div class="form-box">
+                    <h3>Kirim Pesan</h3>
+                    <form>
+                        <input type="text" placeholder="Nama Lengkap Anda">
+                        <input type="email" placeholder="Alamat Surat Elektronik">
+                        <textarea rows="5" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                        <button type="submit">Kirim Pesan</button>
+                    </form>
                 </div>
-            </div>
-
-            <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                <h3 class="text-2xl font-serif mb-6">Kirim Pesan</h3>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Nama Lengkap" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-rose-200 focus:outline-none focus:ring-2 focus:ring-amber-400">
-                    <input type="email" placeholder="Alamat Email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-rose-200 focus:outline-none focus:ring-2 focus:ring-amber-400">
-                    <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-rose-200 focus:outline-none focus:ring-2 focus:ring-amber-400"></textarea>
-                    <button type="submit" class="w-full bg-amber-500 text-rose-900 font-bold py-3 rounded-lg hover:bg-amber-400 transition">Kirim Pesan</button>
-                </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-stone-900 text-stone-400 py-6 text-center text-sm">
-        <p>&copy; 2026 Sanggar Tari Cakra Buana. All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="motto">Manglebet ing Budaya</div>
+        <p>&copy; 2026 Sanggar Tari Cakra Buana — Melestarikan Warisan Nusantara</p>
     </footer>
 
 </body>
