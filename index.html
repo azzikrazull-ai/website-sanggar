@@ -285,6 +285,10 @@
     height: 450px;
     position: relative;
     animation: float 6s ease-in-out infinite;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(201, 162, 39, 0.3);
+    box-shadow: 0 0 60px rgba(201, 162, 39, 0.2);
   }
   
   .hero-visual::before {
@@ -298,27 +302,10 @@
     z-index: -1;
   }
   
-  .dance-icon {
+  .hero-visual img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(45, 212, 191, 0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-    border: 2px solid rgba(201, 162, 39, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .dance-icon::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: linear-gradient(45deg, transparent, rgba(201, 162, 39, 0.1), transparent);
-    animation: shimmer 3s infinite;
+    object-fit: cover;
   }
   
   /* Section Styles */
@@ -375,15 +362,16 @@
   .about-img-main {
     width: 100%;
     height: 500px;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(45, 212, 191, 0.2));
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 6rem;
-    border: 2px solid rgba(201, 162, 39, 0.3);
-    position: relative;
     overflow: hidden;
+    border: 2px solid rgba(201, 162, 39, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  
+  .about-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .experience-badge {
@@ -503,13 +491,10 @@
     overflow: hidden;
   }
   
-  .program-icon::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: pulse 4s infinite;
+  .program-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .program-info { padding: 30px; }
@@ -554,10 +539,15 @@
     border-radius: 15px;
     overflow: hidden;
     aspect-ratio: 4/3;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(45, 212, 191, 0.1));
     border: 2px solid rgba(255,255,255,0.05);
     cursor: pointer;
     transition: 0.4s;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .gallery-item:hover {
@@ -709,16 +699,6 @@
     66% { transform: translateY(-10px) rotate(-2deg); }
   }
   
-  @keyframes shimmer {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
-  }
-  
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-  }
-  
   .reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -738,7 +718,6 @@
     .hero-buttons { justify-content: center; }
     .social-links { justify-content: center; }
     .hero-visual { width: 320px; height: 320px; }
-    .dance-icon { font-size: 5rem; }
     .about-content, .contact-content { grid-template-columns: 1fr; }
     .about-img-main { height: 400px; }
     .nav-links { 
@@ -807,9 +786,7 @@
   </div>
   <div class="hero-image">
     <div class="hero-visual">
-      <div class="dance-icon">
-        <i class="fas fa-dragon" style="background: linear-gradient(135deg, var(--gold), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-      </div>
+      <img src="saswara.jpg" alt="SASWARA Sanggar Seni">
     </div>
   </div>
 </section>
@@ -824,7 +801,7 @@
   <div class="about-content">
     <div class="about-image">
       <div class="about-img-main">
-        <i class="fas fa-users" style="background: linear-gradient(135deg, var(--gold), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+        <img src="saswara.jpg" alt="Tentang SASWARA">
       </div>
       <div class="experience-badge">
         <h3>5+</h3>
@@ -882,7 +859,7 @@
   <div class="programs-grid">
     <div class="program-card">
       <div class="program-icon">
-        <i class="fas fa-drum"></i>
+        <img src="saswara.jpg" alt="Tari Tradisional">
       </div>
       <div class="program-info">
         <h3>Tari Tradisional</h3>
@@ -896,8 +873,8 @@
     </div>
     
     <div class="program-card">
-      <div class="program-icon" style="background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(201, 162, 39, 0.2));">
-        <i class="fas fa-child" style="color: var(--teal);"></i>
+      <div class="program-icon">
+        <img src="saswara.jpg" alt="Tari Anak-Anak">
       </div>
       <div class="program-info">
         <h3>Tari Anak-Anak</h3>
@@ -911,8 +888,8 @@
     </div>
     
     <div class="program-card">
-      <div class="program-icon" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(201, 162, 39, 0.2));">
-        <i class="fas fa-fire" style="color: #ec4899;"></i>
+      <div class="program-icon">
+        <img src="saswara.jpg" alt="Tari Kreasi Baru">
       </div>
       <div class="program-info">
         <h3>Tari Kreasi Baru</h3>
@@ -926,8 +903,8 @@
     </div>
     
     <div class="program-card">
-      <div class="program-icon" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(45, 212, 191, 0.2));">
-        <i class="fas fa-crown" style="color: #8b5cf6;"></i>
+      <div class="program-icon">
+        <img src="saswara.jpg" alt="Persiapan Lomba">
       </div>
       <div class="program-info">
         <h3>Persiapan Lomba</h3>
@@ -941,8 +918,8 @@
     </div>
     
     <div class="program-card">
-      <div class="program-icon" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(236, 72, 153, 0.2));">
-        <i class="fas fa-ring" style="color: #f59e0b;"></i>
+      <div class="program-icon">
+        <img src="saswara.jpg" alt="Tari Pernikahan">
       </div>
       <div class="program-info">
         <h3>Tari Pernikahan</h3>
@@ -956,8 +933,8 @@
     </div>
     
     <div class="program-card">
-      <div class="program-icon" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(45, 212, 191, 0.2));">
-        <i class="fas fa-user-friends" style="color: #10b981;"></i>
+      <div class="program-icon">
+        <img src="saswara.jpg" alt="Private Class">
       </div>
       <div class="program-info">
         <h3>Private Class</h3>
@@ -981,36 +958,42 @@
   </div>
   <div class="gallery-grid">
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Pertunjukan Budaya">
       <div class="gallery-overlay">
         <h4>Pertunjukan Budaya</h4>
         <p>Festival Seni Tradisional 2025</p>
       </div>
     </div>
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Lomba Tari Regional">
       <div class="gallery-overlay">
         <h4>Lomba Tari Regional</h4>
         <p>Juara 1 Tingkat Provinsi</p>
       </div>
     </div>
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Latihan Rutin">
       <div class="gallery-overlay">
         <h4>Latihan Rutin</h4>
         <p>Pembelajaran Tari Lulo</p>
       </div>
     </div>
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Workshop Tari">
       <div class="gallery-overlay">
         <h4>Workshop Tari</h4>
         <p>Masterclass dengan Maestro</p>
       </div>
     </div>
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Pentas Seni">
       <div class="gallery-overlay">
         <h4>Pentas Seni</h4>
         <p>Peringatan Hari Kemerdekaan</p>
       </div>
     </div>
     <div class="gallery-item">
+      <img src="saswara.jpg" alt="Wisuda Murid">
       <div class="gallery-overlay">
         <h4>Wisuda Murid</h4>
         <p>Graduation Day 2025</p>
