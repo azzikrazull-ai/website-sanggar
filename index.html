@@ -33,7 +33,6 @@
   
   h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
   
-  /* Background Animation */
   body::before {
     content: '';
     position: fixed;
@@ -46,7 +45,6 @@
     pointer-events: none;
   }
   
-  /* Navbar */
   nav {
     position: fixed;
     top: 0; width: 100%;
@@ -132,7 +130,6 @@
   
   .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--gold); }
   
-  /* Hero Section */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -308,7 +305,6 @@
     object-fit: cover;
   }
   
-  /* Section Styles */
   section { padding: 120px 8%; }
   
   .section-header {
@@ -342,7 +338,6 @@
     margin: 0 auto;
   }
   
-  /* About */
   .about {
     background: linear-gradient(to bottom, var(--dark), var(--darker));
     position: relative;
@@ -441,7 +436,6 @@
     color: var(--dark);
   }
   
-  /* Programs/Tarian */
   .programs {
     background: var(--darker);
   }
@@ -527,7 +521,6 @@
     border: 1px solid rgba(201, 162, 39, 0.2);
   }
   
-  /* Gallery */
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -578,18 +571,21 @@
   
   .gallery-overlay p { color: var(--gray); font-size: 0.9rem; }
   
-  /* Contact */
+  /* Contact - Layout Baru (Hanya Info Sosmed) */
   .contact {
     background: linear-gradient(to top, var(--darker), var(--dark));
   }
   
-  .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
+  .contact-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
   }
   
-  .contact-info { display: flex; flex-direction: column; gap: 25px; }
+  .contact-info { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
   
   .contact-card {
     background: var(--card-bg);
@@ -603,7 +599,7 @@
   }
   
   .contact-card:hover {
-    transform: translateX(10px);
+    transform: translateY(-5px);
     border-color: var(--teal);
     box-shadow: 0 10px 30px rgba(45, 212, 191, 0.1);
   }
@@ -625,45 +621,6 @@
   .contact-card a { color: var(--teal); text-decoration: none; transition: 0.3s; }
   .contact-card a:hover { color: var(--gold); }
   
-  .contact-form {
-    background: var(--card-bg);
-    padding: 45px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  
-  .form-group { margin-bottom: 25px; }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--light);
-    font-weight: 500;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 15px 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    color: var(--light);
-    font-size: 1rem;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-    background: rgba(201, 162, 39, 0.05);
-  }
-  
-  .form-group textarea { resize: vertical; min-height: 140px; }
-  
-  /* Footer */
   footer {
     background: var(--darker);
     border-top: 1px solid rgba(255,255,255,0.05);
@@ -682,7 +639,6 @@
   
   footer p { color: var(--gray); font-size: 0.95rem; }
   
-  /* Animations */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -710,7 +666,6 @@
     transform: translateY(0);
   }
   
-  /* Responsive */
   @media (max-width: 968px) {
     .hero { flex-direction: column; text-align: center; padding-top: 140px; gap: 60px; }
     .hero-content h1 { font-size: 3rem; }
@@ -718,8 +673,9 @@
     .hero-buttons { justify-content: center; }
     .social-links { justify-content: center; }
     .hero-visual { width: 320px; height: 320px; }
-    .about-content, .contact-content { grid-template-columns: 1fr; }
+    .about-content { grid-template-columns: 1fr; }
     .about-img-main { height: 400px; }
+    .contact-info { grid-template-columns: 1fr; }
     .nav-links { 
       display: none;
       position: absolute;
@@ -741,7 +697,6 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <nav id="navbar">
   <div class="logo">
     <div class="logo-icon"><i class="fas fa-infinity"></i></div>
@@ -762,7 +717,6 @@
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-badge">✨ Sanggar Tari Profesional</div>
@@ -791,7 +745,6 @@
   </div>
 </section>
 
-<!-- About -->
 <section id="about" class="about reveal">
   <div class="section-header">
     <div class="section-badge">Tentang Kami</div>
@@ -804,7 +757,7 @@
         <img src="saswaraofc.jpg" alt="Tentang SASWARA">
       </div>
       <div class="experience-badge">
-        <h3>5+</h3>
+        <h3>2+</h3>
         <p>Tahun<br>Pengalaman</p>
       </div>
     </div>
@@ -849,7 +802,6 @@
   </div>
 </section>
 
-<!-- Programs -->
 <section id="programs" class="programs reveal">
   <div class="section-header">
     <div class="section-badge">Program Unggulan</div>
@@ -921,7 +873,6 @@
   </div>
 </section>
 
-<!-- Gallery -->
 <section id="gallery" class="reveal">
   <div class="section-header">
     <div class="section-badge">Dokumentasi</div>
@@ -930,7 +881,6 @@
   </div>
   <div class="gallery-grid">
     
-    <!-- 1. Pertunjukan Budaya -->
     <div class="gallery-item">
       <img src="foto1.jpg" alt="Pertunjukan Budaya">
       <div class="gallery-overlay">
@@ -939,7 +889,6 @@
       </div>
     </div>
 
-    <!-- 2. Lomba Tari Regional -->
     <div class="gallery-item">
       <img src="foto2.jpg" alt="Lomba Tari Regional">
       <div class="gallery-overlay">
@@ -948,7 +897,6 @@
       </div>
     </div>
 
-    <!-- 3. Tari Persembahan -->
     <div class="gallery-item">
       <img src="foto5.jpg" alt="Tari Persembahan">
       <div class="gallery-overlay">
@@ -957,7 +905,6 @@
       </div>
     </div>
 
-    <!-- 4. Pentas Seni -->
     <div class="gallery-item">
       <img src="foto6.jpg" alt="Pentas Seni">
       <div class="gallery-overlay">
@@ -969,15 +916,16 @@
   </div>
 </section>
 
-<!-- Contact -->
+<!-- Contact - HANYA INFO SOSIAL MEDIA -->
 <section id="contact" class="contact reveal">
   <div class="section-header">
     <div class="section-badge">Hubungi Kami</div>
-    <h2>Mari <span class="gradient-text">Bergabung</span></h2>
-    <p>Siap untuk memulai perjalanan seni tari Anda? Hubungi kami sekarang</p>
+    <h2>Mari <span class="gradient-text">Terhubung</span></h2>
+    <p>Ikuti kami di media sosial atau hubungi langsung untuk informasi lebih lanjut</p>
   </div>
-  <div class="contact-content">
+  <div class="contact-wrapper">
     <div class="contact-info">
+      
       <div class="contact-card">
         <div class="contact-icon">
           <i class="fab fa-whatsapp"></i>
@@ -1037,33 +985,8 @@
           <p>Kendari, Sulawesi Tenggara</p>
         </div>
       </div>
+      
     </div>
-    
-    <form class="contact-form" onsubmit="submitForm(event)">
-      <div class="form-group">
-        <label>Nama Lengkap</label>
-        <input type="text" placeholder="Masukkan nama Anda" required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="email@anda.com" required>
-      </div>
-      <div class="form-group">
-        <label>Nomor WhatsApp</label>
-        <input type="tel" placeholder="08xx-xxxx-xxxx" required>
-      </div>
-      <div class="form-group">
-        <label>Program yang Diminati</label>
-        <input type="text" placeholder="Contoh: Tari Tradisional, Tari Lomba, dll" required>
-      </div>
-      <div class="form-group">
-        <label>Pesan</label>
-        <textarea placeholder="Ceritakan tentang diri Anda atau pertanyaan yang ingin diajukan..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-        <i class="fas fa-paper-plane"></i> Kirim Pesan
-      </button>
-    </form>
   </div>
 </section>
 
@@ -1073,26 +996,22 @@
 </footer>
 
 <script>
-  // Navbar scroll effect
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 50) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   });
   
-  // Mobile menu toggle
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('active');
   }
   
-  // Close menu when link clicked
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       document.getElementById('navLinks').classList.remove('active');
     });
   });
   
-  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1104,14 +1023,6 @@
   
   reveals.forEach(el => revealObserver.observe(el));
   
-  // Form submit
-  function submitForm(e) {
-    e.preventDefault();
-    alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda via WhatsApp.');
-    e.target.reset();
-  }
-  
-  // Smooth scroll for Safari
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
