@@ -489,19 +489,17 @@
     height: 5px;
   }
   
+  /* PERBAIKAN PADA bagian CSS .profil-photo agar foto tampil */
   .profil-photo {
     width: 140px;
     height: 140px;
     border-radius: 50%;
     margin: 0 auto 20px;
     overflow: hidden;
-    border: 3px solid transparent;
-    background: linear-gradient(135deg, var(--gold), var(--teal)) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    border: 3px solid var(--gold);
     position: relative;
-    padding: 3px;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+    background: var(--darker);
   }
   
   .profil-photo img {
