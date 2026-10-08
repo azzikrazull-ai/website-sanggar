@@ -703,171 +703,257 @@
   
   .gallery-overlay p { color: var(--gray); font-size: 0.9rem; }
   
-  /* ============ CONTACT SOSMED STYLE ============ */
+  /* ============ CONTACT - MOCKUP HP STYLE ============ */
   .contact {
     background: linear-gradient(to top, var(--darker), var(--dark));
   }
   
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1300px;
     margin: 0 auto;
   }
   
-  .sosmed-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
+  /* Phone Mockup */
+  .phone-mockup {
+    background: #1a1a1f;
+    border-radius: 35px;
+    padding: 12px;
+    box-shadow: 
+      0 0 0 2px #2a2a30,
+      0 20px 60px rgba(0,0,0,0.6),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
     transition: 0.4s;
     position: relative;
   }
   
-  .sosmed-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  .phone-mockup:hover {
+    transform: translateY(-10px) rotateY(2deg);
+    box-shadow: 
+      0 0 0 2px #2a2a30,
+      0 30px 80px rgba(0,0,0,0.8),
+      inset 0 0 0 1px rgba(255,255,255,0.08);
   }
   
-  .sosmed-header {
-    padding: 25px 25px 20px;
+  .phone-screen {
+    background: #000;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Status Bar */
+  .status-bar {
+    background: #000;
+    padding: 8px 20px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .status-bar .time { font-size: 0.75rem; }
+  .status-icons { display: flex; gap: 5px; align-items: center; }
+  .status-icons i { font-size: 0.65rem; }
+  
+  /* Notch */
+  .notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 22px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+  
+  /* App Header */
+  .app-header {
+    padding: 15px 18px 12px;
     display: flex;
     align-items: center;
-    gap: 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   
-  .sosmed-avatar {
-    width: 70px;
-    height: 70px;
+  .app-header .back-btn {
+    color: #fff;
+    font-size: 1.1rem;
+  }
+  
+  .app-header .app-title {
+    flex: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .app-header .menu-btn {
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  /* Profile Section */
+  .profile-section {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .profile-avatar {
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: white;
     flex-shrink: 0;
     position: relative;
   }
   
-  .sosmed-avatar::after {
+  .profile-avatar::after {
     content: '';
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.2);
   }
   
-  .sosmed-avatar.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-  .sosmed-avatar.tt { background: linear-gradient(135deg, #010101, #333); }
-  .sosmed-avatar.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
-  .sosmed-avatar.yt { background: linear-gradient(135deg, #FF0000, #CC0000); }
+  .profile-avatar.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .profile-avatar.tt { background: linear-gradient(135deg, #010101, #333); border: 2px solid #444; }
+  .profile-avatar.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+  .profile-avatar.yt { background: linear-gradient(135deg, #FF0000, #CC0000); }
+  .profile-avatar.gm { background: linear-gradient(135deg, #EA4335, #FBBC05, #34A853, #4285F4); }
+  .profile-avatar.loc { background: linear-gradient(135deg, var(--gold), var(--teal)); }
   
-  .sosmed-info { flex: 1; }
+  .profile-info { flex: 1; }
   
-  .sosmed-platform {
+  .profile-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    color: var(--light);
-    margin-bottom: 3px;
+    color: #fff;
+    margin-bottom: 2px;
   }
   
-  .sosmed-username {
+  .profile-username {
     color: var(--teal);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
   
-  .sosmed-desc {
-    color: var(--gray);
-    font-size: 0.78rem;
-    line-height: 1.4;
+  .profile-desc {
+    color: #999;
+    font-size: 0.72rem;
+    line-height: 1.3;
   }
   
-  .sosmed-preview {
-    padding: 15px 25px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  /* Action Buttons */
+  .action-buttons {
+    padding: 0 18px 15px;
+    display: flex;
     gap: 8px;
   }
   
-  .preview-thumb {
-    aspect-ratio: 1;
+  .action-btn {
+    flex: 1;
+    padding: 9px;
     border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.78rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .action-btn.primary {
+    color: white;
+  }
+  
+  .action-btn.primary.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .action-btn.primary.tt { background: #333; border: 1px solid #555; }
+  .action-btn.primary.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+  .action-btn.primary.yt { background: linear-gradient(135deg, #FF0000, #CC0000); }
+  .action-btn.primary.gm { background: linear-gradient(135deg, #EA4335, #c62828); }
+  .action-btn.primary.loc { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #000; }
+  
+  .action-btn.secondary {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .action-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+  }
+  
+  /* Photo Grid */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 0 2px 2px;
+  }
+  
+  .photo-grid-item {
+    aspect-ratio: 1;
     overflow: hidden;
     position: relative;
   }
   
-  .preview-thumb img {
+  .photo-grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: 0.3s;
   }
   
-  .preview-thumb:hover img {
+  .photo-grid-item:hover img {
     transform: scale(1.1);
   }
   
-  .preview-thumb .play-icon {
+  .photo-grid-item .overlay-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 1.2rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    font-size: 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    opacity: 0.9;
   }
   
-  .sosmed-footer {
-    padding: 15px 25px 25px;
-  }
-  
-  .btn-kunjungi {
+  /* Home Indicator */
+  .home-indicator {
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    padding-bottom: 8px;
   }
   
-  .btn-kunjungi.ig {
-    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    color: white;
-  }
-  
-  .btn-kunjungi.tt {
-    background: linear-gradient(135deg, #010101, #333);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  
-  .btn-kunjungi.wa {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-  }
-  
-  .btn-kunjungi.yt {
-    background: linear-gradient(135deg, #FF0000, #CC0000);
-    color: white;
-  }
-  
-  .btn-kunjungi:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    filter: brightness(1.1);
+  .home-indicator::before {
+    content: '';
+    width: 100px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
   }
   
   footer {
@@ -924,7 +1010,7 @@
     .hero-visual { width: 320px; height: 320px; }
     .about-content { grid-template-columns: 1fr; }
     .about-img-main { height: 400px; }
-    .contact-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; max-width: 380px; }
     .nav-links { 
       display: none;
       position: absolute;
@@ -1232,126 +1318,294 @@
   </div>
 </section>
 
-<!-- ============ CONTACT SOSMED STYLE ============ -->
+<!-- ============ CONTACT - MOCKUP HP STYLE ============ -->
 <section id="contact" class="contact reveal">
   <div class="section-header">
-    <div class="section-badge">Ikuti Kami</div>
+    <div class="section-badge">Hubungi Kami</div>
     <h2>Sosial <span class="gradient-text">Media</span></h2>
     <p>Ikuti perjalanan kami dan dapatkan update terbaru dari SASWARA</p>
   </div>
   <div class="contact-grid">
     
     <!-- Instagram -->
-    <div class="sosmed-card">
-      <div class="sosmed-header">
-        <div class="sosmed-avatar ig">
-          <i class="fab fa-instagram"></i>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
         </div>
-        <div class="sosmed-info">
-          <div class="sosmed-platform">Instagram</div>
-          <div class="sosmed-username">@saswara_performingart</div>
-          <div class="sosmed-desc">Dokumentasi & Behind The Scene</div>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">Instagram</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
         </div>
-      </div>
-      <div class="sosmed-preview">
-        <div class="preview-thumb"><img src="foto1.jpg" alt="IG Post 1"></div>
-        <div class="preview-thumb"><img src="foto2.jpg" alt="IG Post 2"></div>
-        <div class="preview-thumb"><img src="foto5.jpg" alt="IG Post 3"></div>
-      </div>
-      <div class="sosmed-footer">
-        <a href="https://instagram.com/saswara_performingart" target="_blank" class="btn-kunjungi ig">
-          <i class="fab fa-instagram"></i> Kunjungi Instagram
-        </a>
+        <div class="profile-section">
+          <div class="profile-avatar ig">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">@saswara_performingart</div>
+            <div class="profile-desc">Dokumentasi & Behind The Scene</div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <a href="https://instagram.com/saswara_performingart" target="_blank" class="action-btn primary ig">
+            <i class="fab fa-instagram"></i> Kunjungi
+          </a>
+          <a href="https://instagram.com/saswara_performingart" target="_blank" class="action-btn secondary">
+            <i class="fas fa-share"></i>
+          </a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-grid-item"><img src="foto1.jpg" alt="IG 1"></div>
+          <div class="photo-grid-item"><img src="foto2.jpg" alt="IG 2"></div>
+          <div class="photo-grid-item"><img src="foto5.jpg" alt="IG 3"></div>
+        </div>
+        <div class="home-indicator"></div>
       </div>
     </div>
 
     <!-- TikTok -->
-    <div class="sosmed-card">
-      <div class="sosmed-header">
-        <div class="sosmed-avatar tt">
-          <i class="fab fa-tiktok"></i>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
         </div>
-        <div class="sosmed-info">
-          <div class="sosmed-platform">TikTok</div>
-          <div class="sosmed-username">@sastik_performing_art</div>
-          <div class="sosmed-desc">Video Tari & Konten Kreatif</div>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">TikTok</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
         </div>
-      </div>
-      <div class="sosmed-preview">
-        <div class="preview-thumb">
-          <img src="foto6.jpg" alt="TT Video 1">
-          <i class="fas fa-play play-icon"></i>
+        <div class="profile-section">
+          <div class="profile-avatar tt">
+            <i class="fab fa-tiktok"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">@sastik_performing_art</div>
+            <div class="profile-desc">Video Tari & Konten Kreatif</div>
+          </div>
         </div>
-        <div class="preview-thumb">
-          <img src="foto1.jpg" alt="TT Video 2">
-          <i class="fas fa-play play-icon"></i>
+        <div class="action-buttons">
+          <a href="https://tiktok.com/@sastik_performing_art" target="_blank" class="action-btn primary tt">
+            <i class="fab fa-tiktok"></i> Kunjungi
+          </a>
+          <a href="https://tiktok.com/@sastik_performing_art" target="_blank" class="action-btn secondary">
+            <i class="fas fa-share"></i>
+          </a>
         </div>
-        <div class="preview-thumb">
-          <img src="foto2.jpg" alt="TT Video 3">
-          <i class="fas fa-play play-icon"></i>
+        <div class="photo-grid">
+          <div class="photo-grid-item">
+            <img src="foto6.jpg" alt="TT 1">
+            <i class="fas fa-play overlay-icon"></i>
+          </div>
+          <div class="photo-grid-item">
+            <img src="foto1.jpg" alt="TT 2">
+            <i class="fas fa-play overlay-icon"></i>
+          </div>
+          <div class="photo-grid-item">
+            <img src="foto2.jpg" alt="TT 3">
+            <i class="fas fa-play overlay-icon"></i>
+          </div>
         </div>
-      </div>
-      <div class="sosmed-footer">
-        <a href="https://tiktok.com/@sastik_performing_art" target="_blank" class="btn-kunjungi tt">
-          <i class="fab fa-tiktok"></i> Kunjungi TikTok
-        </a>
+        <div class="home-indicator"></div>
       </div>
     </div>
 
     <!-- WhatsApp -->
-    <div class="sosmed-card">
-      <div class="sosmed-header">
-        <div class="sosmed-avatar wa">
-          <i class="fab fa-whatsapp"></i>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
         </div>
-        <div class="sosmed-info">
-          <div class="sosmed-platform">WhatsApp</div>
-          <div class="sosmed-username">+62 878-6055-0780</div>
-          <div class="sosmed-desc">Chat Langsung untuk Pendaftaran</div>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">WhatsApp</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
         </div>
-      </div>
-      <div class="sosmed-preview">
-        <div class="preview-thumb"><img src="foto5.jpg" alt="WA 1"></div>
-        <div class="preview-thumb"><img src="foto6.jpg" alt="WA 2"></div>
-        <div class="preview-thumb"><img src="foto1.jpg" alt="WA 3"></div>
-      </div>
-      <div class="sosmed-footer">
-        <a href="https://wa.me/6287860550780?text=Halo%20Sanggar%20Seni%20SASWARA,%20saya%20tertarik%20dengan%20program%20tari%20Anda.%20Bolehkah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?" target="_blank" class="btn-kunjungi wa">
-          <i class="fab fa-whatsapp"></i> Chat WhatsApp
-        </a>
+        <div class="profile-section">
+          <div class="profile-avatar wa">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">+62 878-6055-0780</div>
+            <div class="profile-desc">Chat Langsung untuk Pendaftaran</div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <a href="https://wa.me/6287860550780?text=Halo%20Sanggar%20Seni%20SASWARA,%20saya%20tertarik%20dengan%20program%20tari%20Anda.%20Bolehkah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?" target="_blank" class="action-btn primary wa">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+          <a href="https://wa.me/6287860550780" target="_blank" class="action-btn secondary">
+            <i class="fas fa-share"></i>
+          </a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-grid-item"><img src="foto5.jpg" alt="WA 1"></div>
+          <div class="photo-grid-item"><img src="foto6.jpg" alt="WA 2"></div>
+          <div class="photo-grid-item"><img src="foto1.jpg" alt="WA 3"></div>
+        </div>
+        <div class="home-indicator"></div>
       </div>
     </div>
 
     <!-- YouTube -->
-    <div class="sosmed-card">
-      <div class="sosmed-header">
-        <div class="sosmed-avatar yt">
-          <i class="fab fa-youtube"></i>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
         </div>
-        <div class="sosmed-info">
-          <div class="sosmed-platform">YouTube</div>
-          <div class="sosmed-username">@saswaraperformingart</div>
-          <div class="sosmed-desc">Video Pertunjukan & Tutorial</div>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">YouTube</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
         </div>
+        <div class="profile-section">
+          <div class="profile-avatar yt">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">@saswaraperformingart</div>
+            <div class="profile-desc">Video Pertunjukan & Tutorial</div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <a href="https://youtube.com/@saswaraperformingart" target="_blank" class="action-btn primary yt">
+            <i class="fab fa-youtube"></i> Kunjungi
+          </a>
+          <a href="https://youtube.com/@saswaraperformingart" target="_blank" class="action-btn secondary">
+            <i class="fas fa-share"></i>
+          </a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-grid-item">
+            <img src="foto2.jpg" alt="YT 1">
+            <i class="fas fa-play-circle overlay-icon"></i>
+          </div>
+          <div class="photo-grid-item">
+            <img src="foto5.jpg" alt="YT 2">
+            <i class="fas fa-play-circle overlay-icon"></i>
+          </div>
+          <div class="photo-grid-item">
+            <img src="foto6.jpg" alt="YT 3">
+            <i class="fas fa-play-circle overlay-icon"></i>
+          </div>
+        </div>
+        <div class="home-indicator"></div>
       </div>
-      <div class="sosmed-preview">
-        <div class="preview-thumb">
-          <img src="foto2.jpg" alt="YT Video 1">
-          <i class="fas fa-play-circle play-icon"></i>
+    </div>
+
+    <!-- Gmail -->
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
         </div>
-        <div class="preview-thumb">
-          <img src="foto5.jpg" alt="YT Video 2">
-          <i class="fas fa-play-circle play-icon"></i>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">Gmail</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
         </div>
-        <div class="preview-thumb">
-          <img src="foto6.jpg" alt="YT Video 3">
-          <i class="fas fa-play-circle play-icon"></i>
+        <div class="profile-section">
+          <div class="profile-avatar gm">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">azzikrazull@gmail.com</div>
+            <div class="profile-desc">Email Resmi Sanggar Seni</div>
+          </div>
         </div>
+        <div class="action-buttons">
+          <a href="mailto:azzikrazull@gmail.com" class="action-btn primary gm">
+            <i class="fas fa-envelope"></i> Kirim Email
+          </a>
+          <a href="mailto:azzikrazull@gmail.com" class="action-btn secondary">
+            <i class="fas fa-copy"></i>
+          </a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-grid-item"><img src="foto1.jpg" alt="GM 1"></div>
+          <div class="photo-grid-item"><img src="foto5.jpg" alt="GM 2"></div>
+          <div class="photo-grid-item"><img src="foto2.jpg" alt="GM 3"></div>
+        </div>
+        <div class="home-indicator"></div>
       </div>
-      <div class="sosmed-footer">
-        <a href="https://youtube.com/@saswaraperformingart" target="_blank" class="btn-kunjungi yt">
-          <i class="fab fa-youtube"></i> Kunjungi YouTube
-        </a>
+    </div>
+
+    <!-- Lokasi/Alamat -->
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span class="time">9:41</span>
+          <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
+        </div>
+        <div class="app-header">
+          <i class="fas fa-arrow-left back-btn"></i>
+          <span class="app-title">Lokasi</span>
+          <i class="fas fa-ellipsis-v menu-btn"></i>
+        </div>
+        <div class="profile-section">
+          <div class="profile-avatar loc">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name">SASWARA</div>
+            <div class="profile-username">Kendari, Sulawesi Tenggara</div>
+            <div class="profile-desc">Alamat Sanggar Seni Warna Sultra</div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <a href="https://maps.google.com/?q=Kendari+Sulawesi+Tenggara" target="_blank" class="action-btn primary loc">
+            <i class="fas fa-map-marker-alt"></i> Buka Maps
+          </a>
+          <a href="https://maps.google.com/?q=Kendari+Sulawesi+Tenggara" target="_blank" class="action-btn secondary">
+            <i class="fas fa-share"></i>
+          </a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-grid-item"><img src="foto6.jpg" alt="LOC 1"></div>
+          <div class="photo-grid-item"><img src="foto1.jpg" alt="LOC 2"></div>
+          <div class="photo-grid-item"><img src="foto5.jpg" alt="LOC 3"></div>
+        </div>
+        <div class="home-indicator"></div>
       </div>
     </div>
 
