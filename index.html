@@ -436,7 +436,6 @@
     color: var(--dark);
   }
   
-  /* ============ PROFIL SANGGAR ============ */
   .profil {
     background: var(--dark);
     position: relative;
@@ -489,17 +488,19 @@
     height: 5px;
   }
   
-  /* PERBAIKAN PADA bagian CSS .profil-photo agar foto tampil */
   .profil-photo {
     width: 140px;
     height: 140px;
     border-radius: 50%;
     margin: 0 auto 20px;
     overflow: hidden;
-    border: 3px solid var(--gold);
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, var(--gold), var(--teal)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     position: relative;
-    box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
-    background: var(--darker);
+    padding: 3px;
   }
   
   .profil-photo img {
@@ -702,54 +703,172 @@
   
   .gallery-overlay p { color: var(--gray); font-size: 0.9rem; }
   
+  /* ============ CONTACT SOSMED STYLE ============ */
   .contact {
     background: linear-gradient(to top, var(--darker), var(--dark));
   }
   
-  .contact-wrapper {
-    max-width: 900px;
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
   }
   
-  .contact-info { 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  .sosmed-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.4s;
+    position: relative;
   }
   
-  .contact-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.3s;
+  .sosmed-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  
+  .sosmed-header {
+    padding: 25px 25px 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
   
-  .contact-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--teal);
-    box-shadow: 0 10px 30px rgba(45, 212, 191, 0.1);
-  }
-  
-  .contact-icon {
-    width: 60px; height: 60px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, var(--gold), var(--teal));
+  .sosmed-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: var(--dark);
+    font-size: 1.8rem;
+    color: white;
     flex-shrink: 0;
+    position: relative;
   }
   
-  .contact-card h4 { margin-bottom: 5px; color: var(--light); }
-  .contact-card p { color: var(--gray); font-size: 0.95rem; }
-  .contact-card a { color: var(--teal); text-decoration: none; transition: 0.3s; }
-  .contact-card a:hover { color: var(--gold); }
+  .sosmed-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  
+  .sosmed-avatar.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .sosmed-avatar.tt { background: linear-gradient(135deg, #010101, #333); }
+  .sosmed-avatar.wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+  .sosmed-avatar.yt { background: linear-gradient(135deg, #FF0000, #CC0000); }
+  
+  .sosmed-info { flex: 1; }
+  
+  .sosmed-platform {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 3px;
+  }
+  
+  .sosmed-username {
+    color: var(--teal);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .sosmed-desc {
+    color: var(--gray);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  
+  .sosmed-preview {
+    padding: 15px 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  
+  .preview-thumb {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .preview-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+  }
+  
+  .preview-thumb:hover img {
+    transform: scale(1.1);
+  }
+  
+  .preview-thumb .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+  
+  .sosmed-footer {
+    padding: 15px 25px 25px;
+  }
+  
+  .btn-kunjungi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .btn-kunjungi.ig {
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+  }
+  
+  .btn-kunjungi.tt {
+    background: linear-gradient(135deg, #010101, #333);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .btn-kunjungi.wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+  }
+  
+  .btn-kunjungi.yt {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+  }
+  
+  .btn-kunjungi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    filter: brightness(1.1);
+  }
   
   footer {
     background: var(--darker);
@@ -805,7 +924,7 @@
     .hero-visual { width: 320px; height: 320px; }
     .about-content { grid-template-columns: 1fr; }
     .about-img-main { height: 400px; }
-    .contact-info { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
     .nav-links { 
       display: none;
       position: absolute;
@@ -888,7 +1007,7 @@
         <img src="saswaraofc.jpg" alt="Tentang SASWARA">
       </div>
       <div class="experience-badge">
-        <h3>2+</h3>
+        <h3>5+</h3>
         <p>Tahun<br>Pengalaman</p>
       </div>
     </div>
@@ -933,27 +1052,25 @@
   </div>
 </section>
 
-<!-- ============ PROFIL SANGGAR ============ -->
 <section id="profil" class="profil reveal">
   <div class="section-header">
     <div class="section-badge">Struktur Organisasi</div>
     <h2>Profil <span class="gradient-text">Sanggar</span></h2>
+    <p>Orang-orang hebat di balik kesuksesan Sanggar Seni Warna Sultra</p>
   </div>
   <div class="profil-grid">
     
-    <!-- Pembina -->
-<div class="profil-card">
-  <div class="profil-icon"><i class="fas fa-star"></i></div>
-  <div class="profil-photo">
-    <img src="ardi.jpg" alt="Pembina SASWARA" style="object-position: top;">
-  </div>
-  <div class="profil-badge">Pembina</div>
-  <h3 class="profil-name">Muhardi</h3>
-  <p class="profil-role">Pembina SASWARA</p>
-  <p class="profil-desc">Pelindung dan penasihat utama sanggar dalam melestarikan budaya Sulawesi Tenggara.</p>
-</div>
+    <div class="profil-card">
+      <div class="profil-icon"><i class="fas fa-star"></i></div>
+      <div class="profil-photo">
+        <img src="ardi.jpg" alt="Pembina SASWARA">
+      </div>
+      <div class="profil-badge">Pembina</div>
+      <h3 class="profil-name">Muhardi</h3>
+      <p class="profil-role">Pembina SASWARA</p>
+      <p class="profil-desc">Pelindung dan penasihat utama sanggar dalam melestarikan budaya Sulawesi Tenggara.</p>
+    </div>
 
-    <!-- Founder -->
     <div class="profil-card founder">
       <div class="profil-icon"><i class="fas fa-crown"></i></div>
       <div class="profil-photo">
@@ -965,11 +1082,10 @@
       <p class="profil-desc">Jiwa visioner yang mendirikan sanggar dengan cinta mendalam terhadap seni tari Nusantara.</p>
     </div>
 
-    <!-- Ketua -->
     <div class="profil-card">
       <div class="profil-icon"><i class="fas fa-user-tie"></i></div>
       <div class="profil-photo">
-        <img src="aurel.png" alt="Ketua SASWARA">
+        <img src="aurel.jpg" alt="Ketua SASWARA">
       </div>
       <div class="profil-badge">Ketua</div>
       <h3 class="profil-name">Aurelia</h3>
@@ -977,11 +1093,10 @@
       <p class="profil-desc">Pemimpin yang mengarahkan visi dan misi sanggar menuju prestasi yang lebih tinggi.</p>
     </div>
 
-    <!-- Wakil Ketua -->
     <div class="profil-card">
       <div class="profil-icon"><i class="fas fa-user-shield"></i></div>
       <div class="profil-photo">
-        <img src="ipin.png" alt="Wakil Ketua SASWARA">
+        <img src="ipin.jpg" alt="Wakil Ketua SASWARA">
       </div>
       <div class="profil-badge">Wakil Ketua</div>
       <h3 class="profil-name">Arifin</h3>
@@ -989,11 +1104,10 @@
       <p class="profil-desc">Pendamping ketua dalam mengoordinasikan kegiatan dan program sanggar sehari-hari.</p>
     </div>
 
-    <!-- Sekretaris -->
     <div class="profil-card">
       <div class="profil-icon"><i class="fas fa-pen-fancy"></i></div>
       <div class="profil-photo">
-        <img src="riyad.png" alt="Sekretaris SASWARA">
+        <img src="riyad.jpg" alt="Sekretaris SASWARA">
       </div>
       <div class="profil-badge">Sekretaris</div>
       <h3 class="profil-name">Riyad</h3>
@@ -1118,76 +1232,129 @@
   </div>
 </section>
 
+<!-- ============ CONTACT SOSMED STYLE ============ -->
 <section id="contact" class="contact reveal">
   <div class="section-header">
-    <div class="section-badge">Hubungi Kami</div>
-    <h2>Mari <span class="gradient-text">Terhubung</span></h2>
-    <p>Ikuti kami di media sosial atau hubungi langsung untuk informasi lebih lanjut</p>
+    <div class="section-badge">Ikuti Kami</div>
+    <h2>Sosial <span class="gradient-text">Media</span></h2>
+    <p>Ikuti perjalanan kami dan dapatkan update terbaru dari SASWARA</p>
   </div>
-  <div class="contact-wrapper">
-    <div class="contact-info">
-      
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fab fa-whatsapp"></i>
-        </div>
-        <div>
-          <h4>WhatsApp</h4>
-          <p><a href="https://wa.me/6287860550780?text=Halo%20Sanggar%20Seni%20SASWARA,%20saya%20tertarik%20dengan%20program%20tari%20Anda.%20Bolehkah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?" target="_blank">+62 878-6055-0780</a></p>
-        </div>
-      </div>
-      
-      <div class="contact-card">
-        <div class="contact-icon" style="background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+  <div class="contact-grid">
+    
+    <!-- Instagram -->
+    <div class="sosmed-card">
+      <div class="sosmed-header">
+        <div class="sosmed-avatar ig">
           <i class="fab fa-instagram"></i>
         </div>
-        <div>
-          <h4>Instagram</h4>
-          <p><a href="https://instagram.com/saswara_performingart" target="_blank">@saswara_performingart</a></p>
+        <div class="sosmed-info">
+          <div class="sosmed-platform">Instagram</div>
+          <div class="sosmed-username">@saswara_performingart</div>
+          <div class="sosmed-desc">Dokumentasi & Behind The Scene</div>
         </div>
       </div>
-      
-      <div class="contact-card">
-        <div class="contact-icon" style="background: linear-gradient(135deg, #FF0000, #cc0000);">
-          <i class="fab fa-youtube"></i>
-        </div>
-        <div>
-          <h4>YouTube</h4>
-          <p><a href="https://youtube.com/@saswaraperformingart" target="_blank">@saswaraperformingart</a></p>
-        </div>
+      <div class="sosmed-preview">
+        <div class="preview-thumb"><img src="foto1.jpg" alt="IG Post 1"></div>
+        <div class="preview-thumb"><img src="foto2.jpg" alt="IG Post 2"></div>
+        <div class="preview-thumb"><img src="foto5.jpg" alt="IG Post 3"></div>
       </div>
-      
-      <div class="contact-card">
-        <div class="contact-icon" style="background: linear-gradient(135deg, #000000, #333333);">
+      <div class="sosmed-footer">
+        <a href="https://instagram.com/saswara_performingart" target="_blank" class="btn-kunjungi ig">
+          <i class="fab fa-instagram"></i> Kunjungi Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- TikTok -->
+    <div class="sosmed-card">
+      <div class="sosmed-header">
+        <div class="sosmed-avatar tt">
           <i class="fab fa-tiktok"></i>
         </div>
-        <div>
-          <h4>TikTok</h4>
-          <p><a href="https://tiktok.com/@sastik_performing_art" target="_blank">@sastik_performing_art</a></p>
+        <div class="sosmed-info">
+          <div class="sosmed-platform">TikTok</div>
+          <div class="sosmed-username">@sastik_performing_art</div>
+          <div class="sosmed-desc">Video Tari & Konten Kreatif</div>
         </div>
       </div>
-      
-      <div class="contact-card">
-        <div class="contact-icon" style="background: linear-gradient(135deg, #EA4335, #D14130);">
-          <i class="fas fa-envelope"></i>
+      <div class="sosmed-preview">
+        <div class="preview-thumb">
+          <img src="foto6.jpg" alt="TT Video 1">
+          <i class="fas fa-play play-icon"></i>
         </div>
-        <div>
-          <h4>Email</h4>
-          <p><a href="mailto:azzikrazull@gmail.com">azzikrazull@gmail.com</a></p>
+        <div class="preview-thumb">
+          <img src="foto1.jpg" alt="TT Video 2">
+          <i class="fas fa-play play-icon"></i>
         </div>
-      </div>
-      
-      <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div>
-          <h4>Lokasi</h4>
-          <p>Kendari, Sulawesi Tenggara</p>
+        <div class="preview-thumb">
+          <img src="foto2.jpg" alt="TT Video 3">
+          <i class="fas fa-play play-icon"></i>
         </div>
       </div>
-      
+      <div class="sosmed-footer">
+        <a href="https://tiktok.com/@sastik_performing_art" target="_blank" class="btn-kunjungi tt">
+          <i class="fab fa-tiktok"></i> Kunjungi TikTok
+        </a>
+      </div>
     </div>
+
+    <!-- WhatsApp -->
+    <div class="sosmed-card">
+      <div class="sosmed-header">
+        <div class="sosmed-avatar wa">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="sosmed-info">
+          <div class="sosmed-platform">WhatsApp</div>
+          <div class="sosmed-username">+62 878-6055-0780</div>
+          <div class="sosmed-desc">Chat Langsung untuk Pendaftaran</div>
+        </div>
+      </div>
+      <div class="sosmed-preview">
+        <div class="preview-thumb"><img src="foto5.jpg" alt="WA 1"></div>
+        <div class="preview-thumb"><img src="foto6.jpg" alt="WA 2"></div>
+        <div class="preview-thumb"><img src="foto1.jpg" alt="WA 3"></div>
+      </div>
+      <div class="sosmed-footer">
+        <a href="https://wa.me/6287860550780?text=Halo%20Sanggar%20Seni%20SASWARA,%20saya%20tertarik%20dengan%20program%20tari%20Anda.%20Bolehkah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?" target="_blank" class="btn-kunjungi wa">
+          <i class="fab fa-whatsapp"></i> Chat WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- YouTube -->
+    <div class="sosmed-card">
+      <div class="sosmed-header">
+        <div class="sosmed-avatar yt">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <div class="sosmed-info">
+          <div class="sosmed-platform">YouTube</div>
+          <div class="sosmed-username">@saswaraperformingart</div>
+          <div class="sosmed-desc">Video Pertunjukan & Tutorial</div>
+        </div>
+      </div>
+      <div class="sosmed-preview">
+        <div class="preview-thumb">
+          <img src="foto2.jpg" alt="YT Video 1">
+          <i class="fas fa-play-circle play-icon"></i>
+        </div>
+        <div class="preview-thumb">
+          <img src="foto5.jpg" alt="YT Video 2">
+          <i class="fas fa-play-circle play-icon"></i>
+        </div>
+        <div class="preview-thumb">
+          <img src="foto6.jpg" alt="YT Video 3">
+          <i class="fas fa-play-circle play-icon"></i>
+        </div>
+      </div>
+      <div class="sosmed-footer">
+        <a href="https://youtube.com/@saswaraperformingart" target="_blank" class="btn-kunjungi yt">
+          <i class="fab fa-youtube"></i> Kunjungi YouTube
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
